@@ -1,0 +1,14 @@
+$fixture =
+  .example
+    some text
+    %img.inner
+
+#csspec-fixture
+  content: $fixture
+
+.example
+  it should be absolutely positioned
+    position: absolute
+  when in active state -> .active
+    it should be fixed
+      position: fixed

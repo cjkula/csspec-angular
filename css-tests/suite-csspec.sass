@@ -1,0 +1,11 @@
+$fixture : '<div class="example">some text <img class="inner"/></div>'
+
+#csspec-fixture
+  content: $fixture
+
+.example
+  &.-it-should-be-absolutely-positioned
+    position: absolute
+  &.-when-in-active-state.active
+    &.-it-should-be-fixed
+      position: fixed

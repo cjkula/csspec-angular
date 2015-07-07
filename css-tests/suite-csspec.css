@@ -1,0 +1,12 @@
+#csspec-fixture {
+  content: '<div class="example">some text <img class="inner"/></div>';
+}
+
+.example.-it-should-be-absolutely-positioned {
+  position: absolute;
+}
+.example.-when-in-active-state.active.-it-should-be-fixed {
+  position: fixed;
+}
+
+/*# sourceMappingURL=suite-csspec.css.map */

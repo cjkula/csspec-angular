@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,eAAe;EACb,OAAO,EAHE,2DAA2D;;;AAMpE,4CAAqC;EACnC,QAAQ,EAAE,QAAQ;;AAElB,yDAAqB;EACnB,QAAQ,EAAE,KAAK",
+"sources": ["suite-csspec.sass"],
+"names": [],
+"file": "suite-csspec.css"
+}

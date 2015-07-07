@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  height: 92vh;
+}
+
+h2 {
+  color: blue;
+}
+
+.example {
+  position: absolute;
+  &.active {
+    position: fixed;
+  }
+}
