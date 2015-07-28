@@ -1,0 +1,19 @@
+describe my tests
+  offset-top -> @offset().top
+  offset-top: "function($el[, attribute][, expectation]) { return $el.offset().top }"
+
+.layout
+  ~ 0.5px // default tolerance
+  h2
+    cap-line-offset: #{ customJS() }
+  h2 + p  // p immediately after an h2
+    it should be equally padded on top and bottom
+      padding-top: [padding-bottom]
+    it should be the same text color as the section footer
+      color: (^h2 .footer)[color]
+    it should have the first row of text 20px below the header text
+      text-top - 20px: ^h2[text-bottom] ~ 1px
+      offset-top: [offset-top]
+
+      text-top + 20px: &text-bottom ~ 1px
+      offset-top: ^offset-top

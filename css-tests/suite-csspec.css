@@ -1,12 +1,61 @@
-#csspec-fixture {
-  content: '<div class="example">some text <img class="inner"/></div>';
+.-describe-my-example {
+  content: '<div class="example"></div>';
 }
-
-.example.-it-should-be-absolutely-positioned {
+.-describe-my-example .example.-it-should-be-absolutely-positioned {
   position: absolute;
 }
-.example.-when-in-active-state.active.-it-should-be-fixed {
+.-describe-my-example .example.-when-in-active-state-.active.-it-should-be-fixed {
   position: fixed;
+}
+
+.other {
+  display: none;
+}
+.other.active {
+  display: block;
+}
+
+.-describe-my-mixed-element {
+  content: "$other-fixture";
+}
+.-describe-my-mixed-element .other.active.-it-should-be-shown {
+  display: block;
+}
+.-describe-my-mixed-element .other:not(.active).-it-should-be-hidden {
+  display: none;
+}
+.-describe-my-mixed-element .other.-when-.active.active.-it-should-be-shown {
+  display: block;
+}
+.-describe-my-mixed-element .other.-when-.active:not(.active).-it-should-be-hidden {
+  display: none;
+}
+
+.-describe-a-function-attribute {
+  content: '<div class="custom-element"></div>';
+  -fn-custom-attribute: "return 'custom value'";
+  -fn-offset-top: "return $el.offset().top";
+  -fn-offset-left: "return $el.offset().left";
+}
+.-describe-a-function-attribute .custom-element.-it-should-return-a-custom-value {
+  custom-attribute: custom value;
+}
+.-describe-a-function-attribute .custom-element.-it-should-calculate-offset {
+  offset-top: 0;
+  offset-left: 0;
+}
+
+.-describe-element-comparison {
+  content: '<div class="first-el"></div> <div class="second-el"></div>';
+  -fn-offset-top: "return $el.offset().top";
+}
+.-describe-element-comparison .first-el + .second-el.-it-should-be-vertically-top-aligned-with-the-previous-element {
+  offset-top: "^[offset-top]";
+}
+
+.-describe-operators.-it-should-recognize-them {
+  left: "top + 10";
+  top: "[offset-top] / 2";
 }
 
 /*# sourceMappingURL=suite-csspec.css.map */

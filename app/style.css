@@ -11,6 +11,7 @@ h2 {
 
 .example {
   position: absolute;
+  color: blue;
 }
 .example.active {
   position: fixed;

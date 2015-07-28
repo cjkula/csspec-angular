@@ -9,7 +9,8 @@ module.exports = function(grunt) {
       csspec: {
         dev: {
           files: {
-            'css-tests/suite-csspec.sass' : 'css-tests/suite.csspec'
+            'css-tests/suite-csspec.sass' : 'css-tests/suite.csspec',
+            // 'css-tests/virtual-csspec.sass' : 'css-tests/virtual.csspec',
           }
         }
       },
@@ -22,7 +23,8 @@ module.exports = function(grunt) {
           },
           files: {
               'app/style.css' : 'app/sass/style.scss',
-              'css-tests/suite-csspec.css' : 'css-tests/suite-csspec.sass'
+              'css-tests/suite-csspec.css' : 'css-tests/suite-csspec.sass',
+              // 'css-tests/virtual-csspec.css' : 'css-tests/virtual-csspec.sass'
           }
         }
       },
@@ -46,12 +48,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-csspec');
 
-    // can't seem to load this with #loadNpmTasks
-    // as above, which prompts the error:
-    // "Local Npm module <csspec-grunt> not found. Is it installed?"
-    // Perhaps the module cofiguration is off a bit?
-    grunt.loadTasks('./node_modules/csspec-grunt');
-
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['csspec:dev', 'sass:dev', 'watch']);
 };

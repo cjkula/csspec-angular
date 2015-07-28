@@ -1,14 +1,76 @@
-$fixture =
+// import mixins for inclusion in unit tests
+@import '../app/sass/mixins'
+
+// a -describe class on the root namespace
+// with no other qualifiers will be applied
+// directly to the test fixture container.
+describe my example
+  content =
+    .example
+
+  // this element needs to be indented within the
+  // namespace to inherit the above content
   .example
-    some text
-    %img.inner
+    it should be absolutely positioned
+      position: absolute
+    when in active state -> .active
+      it should be fixed
+        position: fixed
 
-#csspec-fixture
-  content: $fixture
+// Tests for a module defining a class-based show/hide mechanism.
+// The target classes are abstracted into the mixin call.
+=show-active-test($active-sel)
+  &#{$active-sel}
+    it should be shown
+      display: block
+  &:not(#{$active-sel})
+    it should be hidden
+      display: none
 
-.example
-  it should be absolutely positioned
-    position: absolute
-  when in active state -> .active
-    it should be fixed
-      position: fixed
+// HAML templates can be assigned to variables
+$other-fixture =
+  .other
+
+// [Getting a SASS error when the following comment is 
+//  appended to the end the next line. Appears the sequence
+//  "SELECTOR // COMMENT\n  PROPERTY" is broken in the SASS->CSS compiler.]
+
+.other
+  +show-active('.active')        // apply the mixin
+
+// give the test a namespace
+describe my mixed element
+  content: $other-fixture          // apply markup to the fixture container
+  .other                           // reference the element
+    +show-active-test('.active')   // apply test suite to the default case
+    when .active
+      +show-active-test('.active') // apply test suite to active case
+
+describe a function attribute
+  content =
+    .custom-element
+  -fn-custom-attribute: "return 'custom value'"
+  -fn-offset-top: "return $el.offset().top"
+  offset-left -> return $el.offset().left
+  .custom-element
+    it should return a custom value
+      custom-attribute: custom value
+    it should calculate offset
+      offset-top: 0
+      offset-left: 0
+
+describe element comparison
+  content =
+    .first-el
+    .second-el
+  offset-top -> return $el.offset().top
+  .first-el + .second-el
+    it should be vertically top-aligned with the previous element
+      offset-top: ^[offset-top]
+
+describe operators
+  it should recognize them
+    left: top + 10
+    &[top]: [offset-top] / 2
+
+

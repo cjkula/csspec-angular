@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,mBAAmB;EACjB,UAAU,EAAE,sBAAsB;;;AAGlC,cAAoC;EAClC,QAAQ,EAAE,gCAAgC",
+"sources": ["virtual-csspec.sass"],
+"names": [],
+"file": "virtual-csspec.css"
+}
