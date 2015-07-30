@@ -1,7 +1,7 @@
 {
   "name": "csspec-angular",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Implement CSSpec in the AngularJS framework",
   "repository": "https://github.com/cjkula/csspec-angular",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "grunt": "~0.4.5",
     "grunt-contrib-sass": "~0.9.2",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-csspec": "~0.1.2",
+    "grunt-csspec": "~0.1.4",
     "http-server": "^0.6.1",
     "jasmine-core": "^2.3.4",
     "karma": "~0.12",
